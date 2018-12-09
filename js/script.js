@@ -26,13 +26,13 @@ $(document).ready(function(){
 
 //Zmiana dynamiki tła
 $("#bodybgbtn").click(function() {
-    var bg = document.querySelector("#bodybg");
+    var bg = document.querySelector("body");
     if(bg.classList == "dynamicbg") {
-        $("#bodybg").removeClass("dynamicbg").addClass("staticbg");
+        $("body").removeClass("dynamicbg").addClass("staticbg");
         $("#bodybgbtn").removeClass("btn-outline-primary").addClass("btn-primary");
     }
     else {
-        $("#bodybg").removeClass("staticbg").addClass("dynamicbg");
+        $("body").removeClass("staticbg").addClass("dynamicbg");
         $("#bodybgbtn").removeClass("btn-primary").addClass("btn-outline-primary");
     }
 });
@@ -41,8 +41,6 @@ $("#bodybgbtn").click(function() {
 $(document).ready(function(){
     $("#queryContainerID").hide();
     $("#queryContainerID").append("<div class='queryBox queryBoxAccept animated fadeInRight'>Hello Commander ⭐! Let's do something! Double click the buttons below for some action.</div>");
-    var anim = "pulse";
-    testAnim(anim);
     $(".denverask").click(function(){
         $("#queryContainerID").fadeIn();
         $("#denver-container").removeClass("denver").addClass("denver-change");
