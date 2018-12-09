@@ -19,8 +19,7 @@ function testAnim(x) {
 $(document).ready(function(){
     $('#denvy').click(function(e){
       e.preventDefault();
-      var anim = "pulse";
-      testAnim(anim);
+      testAnim("pulse");
     });
 });
 
@@ -40,8 +39,9 @@ $("#bodybgbtn").click(function() {
 //Zmiana widoku po kliknięciu w przyciski menu
 $(document).ready(function(){
     $("#queryContainerID").hide();
-    $("#queryContainerID").append("<div class='queryBox queryBoxAccept animated fadeInRight'>Hello Commander ⭐! Let's do something! Double click the buttons below for some action.</div>");
+    $("#queryContainerID").append("<div class='queryBox queryBoxAccept animated fadeInRight'>Hello Commander! Let's do something! Double click the buttons below for some action.</div>");
     $(".denverask").click(function(){
+        testAnim("bounce");
         $("#queryContainerID").fadeIn();
         $("#denver-container").removeClass("denver").addClass("denver-change");
         $("#menu-container").removeClass("menu").addClass("menu-change");
@@ -50,8 +50,9 @@ $(document).ready(function(){
 
 //Test przycisku Talk with me!
 $(document).ready(function(){
-    $("#talkwithme").dblclick(function(){
-
+    textSC = [];
+    $("#twm").dblclick(function(){
+        console.log("=========================")
         //Tablica z kwestiami Denver
         var text = [];
             text[0] = "Hello! I am Cleveland class's Denver, the fourth knight of the sea. Before I formally join your forces, will you tell me what kind of future do you wish for?";
@@ -62,11 +63,49 @@ $(document).ready(function(){
             text[5] = "I also want to be like Cleveland, rampaging inside the battlefield with swagger!";
         
         //Losowanie numeru kwestii
-        los = Math.floor(Math.random()*5);
+        function losujText(x) {
+            return Math.floor(Math.random()*(x-1));
+        }
 
-        //Tworzenie nowej wiadomości z wylosowaną kwestią
-        $("#queryContainerID").append("<div class='queryBox animated fadeInRight'>"+text[los]+"</div>")
-        var anim = "bounce";
-        testAnim(anim);;
+        if(textSC.length == 6) {
+            textSC.splice(0,5);
+            console.log("------------------");
+            console.log("Czyszczenie tablicy textSC: 6 elementów");
+            console.log("------------------");
+        }
+
+        if(textSC.length != 0) {
+            var n = losujText(text.length);
+            console.log("------------------");
+            console.log("Wylosowane n: "+n);
+            for (let i = 0; i < textSC.length; i++) {
+                if(n == textSC[i]) {
+                    console.log("n pasuje do elementu z tablicy textSC");
+                    n = losujText(textSC.length+1);
+                    console.log("inkrementacja n do "+n);
+                    break;
+                }
+            }
+            $("#queryContainerID").append("<div class='queryBox animated fadeInRight'>"+text[n]+"</div>");
+            testAnim("bounce");
+            textSC.push(n);
+            console.log("Dodawanie n do tablicy textSC");
+            console.log("------------------");
+        }
+        else {
+            console.log("------------------");
+            var n = losujText(text.length);
+            console.log("n nie pasuje do żadnego elementu z tablicy textSC");
+            console.log("Wylosowane n: "+n);
+            $("#queryContainerID").append("<div class='queryBox animated fadeInRight'>"+text[n]+"</div>");
+            testAnim("bounce");
+            textSC.push(n);
+            console.log("Dodawanie n do tablicy textSC");
+            console.log("------------------");
+        }
+        console.log("------------------");
+        console.log("Długość tablicy textSC : "+textSC.length);
+        console.log("------------------");
+        console.log("=========================")
     });
 });
