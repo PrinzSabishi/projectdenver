@@ -92,6 +92,7 @@
     box-shadow: 11px 12px 24px -7px rgba(0,0,0,0.46);
     padding: 10px;
     margin-top: 5px;
+    max-width: 75%;
   }
   .queryBox img {
     max-height: 600px;
