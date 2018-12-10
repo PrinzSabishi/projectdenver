@@ -34,7 +34,7 @@ $(document).ready(function(){
             default:
                 break;
         }
-        var imgurl = "/img/"+postac+nrob+".jpg";
+        var imgurl = "img/"+postac+nrob+".jpg";
         console.log(imgurl);
         $("#queryContainerID").append("<div class='queryBox animated fadeInRight'><p>"+postacmsg+"</p><img src='"+imgurl+"' class='img-fluid' /></div>");
 
