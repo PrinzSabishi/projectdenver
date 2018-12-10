@@ -1,2 +1,2 @@
-# projectdenver
-Azur Lane Assistant with some fun.
+# Project: Denver
+Easy and simple Azur Lane Assistant.
