@@ -1,6 +1,6 @@
   /* Backgrounds */
   .dynamicbg {
-    background-image: url("https://i.imgur.com/EFSgl01.jpg");
+    background-image: url("../img/bg.jpg");
     background-repeat: repeat;
     background-position: 0px 0px;
     animation: animatedBackground 100s linear infinite;
@@ -9,7 +9,7 @@
     margin: 0;
   }
   .staticbg {
-    background-image: url("https://i.imgur.com/EFSgl01.jpg");
+    background-image: url("../img/bg.jpg");
     background-repeat: repeat;
     background-position: 0px 0px;
     width: 100%;
